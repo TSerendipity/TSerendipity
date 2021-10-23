@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+	int n,i,j;
+	while(1){
+		scanf("%d",&n);
+		if(n==0)break;
+		if(n!=0){
+			int a[n];
+			for( i=0;i<n;i++){
+				scanf("%d",&a[i]);
+			}
+			
+			for(i=0;i<n;i++){
+				int max=a[i];
+				int record =i;
+				
+				for(j=i+1;j<n;j++){
+					if(abs(a[j])>abs(max)){
+						max=a[j];
+						record=j;
+					}
+				}
+				
+				a[record]=a[i];
+				a[i]=max;
+			}
+			
+			for(i=0;i<n-1;i++){
+				printf("%d",a[i]);
+			    printf(" ");
+			}
+			
+			printf("%d\n",a[n-1]);
+		} 
+	}
+		return 0;
+
+
+}
